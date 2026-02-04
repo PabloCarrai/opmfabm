@@ -45,6 +45,7 @@ try:
     for archivo in archivos:
         #   leerArchivo lee lo que hay en los sql y se los pasa a crearDB
         crearDB(leerArchivos(archivo))
-
+        print("Creacion de la db realizada")
+        print("Generacion de tablas necesarias.")
 except Exception as e:
     print(f"Error al querer generar las tablas de la db{e}")
