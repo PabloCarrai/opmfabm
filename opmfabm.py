@@ -1,4 +1,4 @@
-from VentanaPrincipal import Ventana_Principal
+from ventanas.VentanaPrincipal import Ventana_Principal
 import tkinter as tk
 
 
