@@ -51,5 +51,19 @@ class VentanaABMUsuario:
             column=1, row=1, padx=10, pady=10
         )
         # dni
+        self.etiquetaDNIlabelFrameABMUsuarioVentanaSecundaria = tk.Label(
+            self.labelFrameABMUsuarioVentanaSecundaria, text="DNI:  "
+        )
+        self.etiquetaDNIlabelFrameABMUsuarioVentanaSecundaria.grid(
+            column=0, row=2, padx=10, pady=10
+        )
+        self.stringvarDNIlabelFrameABMUsuarioVentanaSecundaria = tk.StringVar()
+        self.entradaDNIlabelFrameABMUsuarioVentanaSecundaria = tk.Entry(
+            self.labelFrameABMUsuarioVentanaSecundaria,
+            textvariable=self.stringvarDNIlabelFrameABMUsuarioVentanaSecundaria,
+        )
+        self.entradaDNIlabelFrameABMUsuarioVentanaSecundaria.grid(
+            column=1, row=2, padx=10, pady=10
+        )
         # email
         # telefono
