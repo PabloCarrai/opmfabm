@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+# from .auxabm import validarEntero as ve
+
 
 class VentanaABMUsuario:
     def __init__(self):
@@ -66,4 +68,53 @@ class VentanaABMUsuario:
             column=1, row=2, padx=10, pady=10
         )
         # email
+        self.etiquetaEmaillabelFrameABMUsuarioVentanaSecundaria = tk.Label(
+            self.labelFrameABMUsuarioVentanaSecundaria, text="Email:   "
+        )
+        self.etiquetaEmaillabelFrameABMUsuarioVentanaSecundaria.grid(
+            column=0, row=3, padx=10, pady=10
+        )
+        self.stringvarEmaillabelFrameABMUsuarioVentanaSecundaria = tk.StringVar()
+        self.entradaEmaillabelFrameABMUsuarioVentanaSecundaria = tk.Entry(
+            self.labelFrameABMUsuarioVentanaSecundaria,
+            textvariable=self.stringvarEmaillabelFrameABMUsuarioVentanaSecundaria,
+        )
+        self.entradaEmaillabelFrameABMUsuarioVentanaSecundaria.grid(
+            column=1, row=3, padx=10, pady=10
+        )
+
         # telefono
+        self.etiquetaTelefonolabelFrameABMUsuarioVentanaSecundaria.grid(
+            column=0, row=4, padx=10, pady=10
+        )
+        self.stringvarTelefonolabelFrameABMUsuarioVentanaSecundaria = tk.StringVar()
+        self.entradaTelefonolabelFrameABMUsuarioVentanaSecundaria = tk.Entry(
+            self.labelFrameABMUsuarioVentanaSecundaria,
+            textvariable=self.stringvarTelefonolabelFrameABMUsuarioVentanaSecundaria,
+        )
+        self.entradaTelefonolabelFrameABMUsuarioVentanaSecundaria.grid(
+            column=1, row=4, padx=10, pady=10
+        )
+
+        #   Boton Aceptar
+        self.botonAceptarlabelFrameABMUsuarioVentanaSecundaria = tk.Button(
+            self.labelFrameABMUsuarioVentanaSecundaria,
+            text="Aceptar",
+            command=self.ValidrBotonAceptar,
+        )
+        self.botonAceptarlabelFrameABMUsuarioVentanaSecundaria.grid(
+            column=0, row=5, padx=10, pady=10
+        )
+
+        #   Boton Cancelar
+        self.botonCancelarlabelFrameABMUsuarioVentanaSecundaria = tk.Button(
+            self.labelFrameABMUsuarioVentanaSecundaria,
+            text="Cancelar",
+            command=self.ValidrBotonAceptar,
+        )
+        self.botonCancelarlabelFrameABMUsuarioVentanaSecundaria.grid(
+            column=1, row=5, padx=10, pady=10
+        )
+
+    def ValidrBotonAceptar(self):
+        pass
