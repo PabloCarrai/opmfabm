@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox as ms
 
-# from .auxabm import validarEntero as ve
+from .auxabm import validarNoEsteVacio as vnv
 
 
 class VentanaABMUsuario:
@@ -84,6 +85,9 @@ class VentanaABMUsuario:
         )
 
         # telefono
+        self.etiquetaTelefonolabelFrameABMUsuarioVentanaSecundaria = tk.Label(
+            self.labelFrameABMUsuarioVentanaSecundaria, text="Telefono"
+        )
         self.etiquetaTelefonolabelFrameABMUsuarioVentanaSecundaria.grid(
             column=0, row=4, padx=10, pady=10
         )
@@ -100,7 +104,7 @@ class VentanaABMUsuario:
         self.botonAceptarlabelFrameABMUsuarioVentanaSecundaria = tk.Button(
             self.labelFrameABMUsuarioVentanaSecundaria,
             text="Aceptar",
-            command=self.ValidrBotonAceptar,
+            command=self.ValidarBotonAceptar,
         )
         self.botonAceptarlabelFrameABMUsuarioVentanaSecundaria.grid(
             column=0, row=5, padx=10, pady=10
@@ -110,11 +114,26 @@ class VentanaABMUsuario:
         self.botonCancelarlabelFrameABMUsuarioVentanaSecundaria = tk.Button(
             self.labelFrameABMUsuarioVentanaSecundaria,
             text="Cancelar",
-            command=self.ValidrBotonAceptar,
+            command=self.ValidarBotonCancelar,
         )
         self.botonCancelarlabelFrameABMUsuarioVentanaSecundaria.grid(
             column=1, row=5, padx=10, pady=10
         )
 
-    def ValidrBotonAceptar(self):
-        pass
+    def ValidarBotonAceptar(self):
+        try:
+            if vnv(
+                self.stringvarNombrelabelFrameABMUsuarioVentanaSecundaria.get(),
+                self.stringvarApellidolabelFrameABMUsuarioVentanaSecundaria.get(),
+                self.stringvarDNIlabelFrameABMUsuarioVentanaSecundaria.get(),
+                self.stringvarEmaillabelFrameABMUsuarioVentanaSecundaria.get(),
+                self.stringvarTelefonolabelFrameABMUsuarioVentanaSecundaria.get(),
+            ):
+                ms.showinfo("Exito", "Todos los textos son validos")
+            else:
+                ms.showerror("Error", f"Hay cadenas vacias")
+        except Exception as e:
+            ms.showerror("Error", f"Se encontro el siguiente problema: {e}")
+
+    def ValidarBotonCancelar(self):
+        self.ventana.destroy()
