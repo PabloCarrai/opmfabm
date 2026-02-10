@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox as ms
 
 from .auxabm import validarNoEsteVacio as vnv
+from .auxabmdb import MrDB as mrdb
 
 
 class VentanaABMUsuario:
@@ -129,7 +130,22 @@ class VentanaABMUsuario:
                 self.stringvarEmaillabelFrameABMUsuarioVentanaSecundaria.get(),
                 self.stringvarTelefonolabelFrameABMUsuarioVentanaSecundaria.get(),
             ):
-                ms.showinfo("Exito", "Todos los textos son validos")
+                try:
+                    conexion = mrdb()
+                    conexion.conectar()
+                    datos = (
+                        self.stringvarNombrelabelFrameABMUsuarioVentanaSecundaria.get(),
+                        self.stringvarApellidolabelFrameABMUsuarioVentanaSecundaria.get(),
+                        self.stringvarDNIlabelFrameABMUsuarioVentanaSecundaria.get(),
+                        self.stringvarEmaillabelFrameABMUsuarioVentanaSecundaria.get(),
+                        self.stringvarTelefonolabelFrameABMUsuarioVentanaSecundaria.get(),
+                    )
+                    conexion.insertarCliente(datos)
+                    conexion.cerrar()
+                    ms.showinfo("Exito", "Cargamos los datos del cliente")
+                except Exception as e:
+                    print(f"Error al cargar los datos {e}")
+
             else:
                 ms.showerror(
                     "Error",

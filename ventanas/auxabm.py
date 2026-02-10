@@ -13,3 +13,4 @@ def validarNoEsteVacio(*textos):
         return True
     except ValueError as e:
         print(f"Error {e}")
+
