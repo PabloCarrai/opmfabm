@@ -7,7 +7,7 @@ from .auxabm import vaciarEntrys as ve
 from .auxabmdb import DB as db
 
 
-class VentanaABMUsuario:
+class VentanaABMAltaUsuario:
     def __init__(self):
         #   Arranca la ventana secundaria
         self.ventana = tk.Toplevel()

@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from ventanas.VentanaABMUsuario import VentanaABMUsuario
+from ventanas.VentanaABMAltaUsuario import VentanaABMAltaUsuario
 
 
 class Ventana_Principal:
@@ -22,4 +22,4 @@ class Ventana_Principal:
         )
 
     def abrirVentanaABMUsuario(self):
-        self.ventanaSecundaria = VentanaABMUsuario()
+        self.ventanaSecundaria = VentanaABMAltaUsuario()
