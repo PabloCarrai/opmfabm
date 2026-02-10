@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 from ventanas.VentanaABMAltaUsuario import VentanaABMAltaUsuario
+#   En desarrollo
+from ventanas.VentanaABMListadoUsuario import VentanaABMListadoUsuario
 
 
 class Ventana_Principal:
@@ -15,11 +17,25 @@ class Ventana_Principal:
         self.botonAltaUsuariolabelFrameABMUsuario = tk.Button(
             self.labelFrameABMUsuario,
             text="Alta Usuario",
-            command=self.abrirVentanaABMUsuario,
+            command=self.abrirVentanaABMAltaUsuario,
         )
         self.botonAltaUsuariolabelFrameABMUsuario.grid(
             column=0, row=0, padx=10, pady=10
         )
 
-    def abrirVentanaABMUsuario(self):
-        self.ventanaSecundaria = VentanaABMAltaUsuario()
+        #   Boton Listado Usuario
+        self.botonListadoUsuariolabelFrameABMUsuario = tk.Button(
+            self.labelFrameABMUsuario,
+            text="Listado Usuario",
+            command=self.abrirVentanaABMListadoUsuario,
+        )
+        self.botonListadoUsuariolabelFrameABMUsuario.grid(
+            column=1, row=0, padx=10, pady=10
+        )
+
+    def abrirVentanaABMAltaUsuario(self):
+        ventanaSecundaria = VentanaABMAltaUsuario()
+
+    def abrirVentanaABMListadoUsuario(self):
+        ventanaSecundaria = VentanaABMListadoUsuario()
+        print("Putoooo")
