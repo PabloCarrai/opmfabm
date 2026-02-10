@@ -1,3 +1,6 @@
+import tkinter as tk
+
+
 def validarNoEsteVacio(*textos):
     """
     Valida que textos tenga algun string o no este vacio
@@ -14,3 +17,11 @@ def validarNoEsteVacio(*textos):
     except ValueError as e:
         print(f"Error {e}")
 
+
+def vaciarEntrys(entrada):
+    """
+    A cada entrada pasado como entrada, borramos su contenido
+    :param entrada: Es una tupla con las entradas de cada parte de la ventaba ABM 
+    """
+    for e in entrada:
+        e.delete(0, tk.END)

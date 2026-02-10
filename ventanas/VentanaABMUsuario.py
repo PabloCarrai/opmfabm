@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox as ms
 
 from .auxabm import validarNoEsteVacio as vnv
+from .auxabm import vaciarEntrys as ve
 from .auxabmdb import MrDB as mrdb
 
 
@@ -142,6 +143,14 @@ class VentanaABMUsuario:
                     )
                     conexion.insertarCliente(datos)
                     conexion.cerrar()
+                    entradas = (
+                        self.entradaNombrelabelFrameABMUsuarioVentanaSecundaria,
+                        self.entradaApellidolabelFrameABMUsuarioVentanaSecundaria,
+                        self.entradaEmaillabelFrameABMUsuarioVentanaSecundaria,
+                        self.entradaTelefonolabelFrameABMUsuarioVentanaSecundaria,
+                        self.entradaDNIlabelFrameABMUsuarioVentanaSecundaria,
+                    )
+                    ve(entradas)
                     ms.showinfo("Exito", "Cargamos los datos del cliente")
                 except Exception as e:
                     print(f"Error al cargar los datos {e}")
