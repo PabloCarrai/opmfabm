@@ -131,7 +131,10 @@ class VentanaABMUsuario:
             ):
                 ms.showinfo("Exito", "Todos los textos son validos")
             else:
-                ms.showerror("Error", f"Hay cadenas vacias")
+                ms.showerror(
+                    "Error",
+                    f"Hay datos que no se ingresaron correctamente. Revise nuevamente",
+                )
         except Exception as e:
             ms.showerror("Error", f"Se encontro el siguiente problema: {e}")
 
