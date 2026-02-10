@@ -4,7 +4,7 @@ from tkinter import messagebox as ms
 
 from .auxabm import validarNoEsteVacio as vnv
 from .auxabm import vaciarEntrys as ve
-from .auxabmdb import MrDB as mrdb
+from .auxabmdb import DB as db
 
 
 class VentanaABMUsuario:
@@ -132,7 +132,7 @@ class VentanaABMUsuario:
                 self.stringvarTelefonolabelFrameABMUsuarioVentanaSecundaria.get(),
             ):
                 try:
-                    conexion = mrdb()
+                    conexion = db()
                     conexion.conectar()
                     datos = (
                         self.stringvarNombrelabelFrameABMUsuarioVentanaSecundaria.get(),
