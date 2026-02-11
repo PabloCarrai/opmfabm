@@ -21,24 +21,40 @@ class DB(MrDB):
             "insert into clientes(nombre,apellido,dni,email,telefono) values(?,?,?,?,?)"
         )
         try:
+            #   Creo un cursor
             cursor = self.conexion.cursor()
+            #   Ejecuto la consulta pasando los datos que se usan en el abm
             cursor.execute(consulta, datos)
+            #   Commiteo estos cambios en la db
             self.conexion.commit()
             print("Clientes guardados con exito")
         except sqlite3.IntegrityError:
             print("Error al guardar cliente")
         finally:
+            #   Por ultimo cierro la conexion
             self.cerrar()
 
     def listarClientesExistentes(self):
+        """
+        Este metodo nos lista los clientes existentes en la db
+
+        Returns:
+        Devuelve lo que hay en la db consultando la sql consulta
+        """
         consulta = "select id_cliente,nombre,apellido,dni,email,telefono from clientes"
         try:
+            #   Creo el objeto instancia del tipo DB
             cursor = DB()
+            #   Sobre dicho objeto llamo al metodo conectar(devuelve un cursor)
             cursor = cursor.conectar()
+            #   Ejecuto la consulta
             cursor.execute(consulta)
+            #   Devuelvo los registros a una variable
             usuariosExistentes = cursor.fetchall()
+            #   Retorno esos datos
             return usuariosExistentes
         except sqlite3.IntegrityError:
             print("Error al Listar los cliente")
         finally:
+            #   Por ultimo cierro la conexion a la db
             self.cerrar()
