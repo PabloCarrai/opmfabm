@@ -50,7 +50,8 @@ class VentanaABMListadoUsuario:
     def listarUsuariosExistentes(self):
         conexion = db()
         resultado = conexion.listarClientesExistentes()
-        print(resultado)
+        for fila in resultado:
+            self.treeviewListadoABMUsuario.insert("", "end", values=fila)
 
     def cancelarListadoUsuario(self):
         self.ventana.destroy()

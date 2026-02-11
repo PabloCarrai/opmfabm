@@ -31,8 +31,7 @@ class DB(MrDB):
             self.cerrar()
 
     def listarClientesExistentes(self):
-        pass
-        consulta = "select id_cliente,nombre,apellido,dni,email from clientes"
+        consulta = "select id_cliente,nombre,apellido,dni,email,telefono from clientes"
         try:
             cursor = DB()
             cursor = cursor.conectar()
