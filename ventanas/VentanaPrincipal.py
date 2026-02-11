@@ -38,4 +38,4 @@ class Ventana_Principal:
 
     def abrirVentanaABMListadoUsuario(self):
         ventanaSecundaria = VentanaABMListadoUsuario()
-        print("Putoooo")
+        
