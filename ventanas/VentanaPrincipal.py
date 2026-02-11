@@ -16,7 +16,7 @@ class Ventana_Principal:
         #   Boton Alta Usuario
         self.botonAltaUsuariolabelFrameABMUsuario = tk.Button(
             self.labelFrameABMUsuario,
-            text="Alta Usuario",
+            text="Alta",
             command=self.abrirVentanaABMAltaUsuario,
         )
         self.botonAltaUsuariolabelFrameABMUsuario.grid(
@@ -26,7 +26,7 @@ class Ventana_Principal:
         #   Boton Listado Usuario
         self.botonListadoUsuariolabelFrameABMUsuario = tk.Button(
             self.labelFrameABMUsuario,
-            text="Listado Usuario",
+            text="Listado",
             command=self.abrirVentanaABMListadoUsuario,
         )
         self.botonListadoUsuariolabelFrameABMUsuario.grid(

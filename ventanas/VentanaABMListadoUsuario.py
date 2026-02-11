@@ -7,6 +7,9 @@ class VentanaABMListadoUsuario:
     def __init__(self):
         self.ventana = tk.Toplevel()
         self.ventana.title("Listado de Clientes")
+        # Esto ajusta las columnas por el contenedor del labelframe
+        self.ventana.columnconfigure(0, weight=1)
+        self.ventana.rowconfigure(0, weight=1)
         self.labelFrameventabaAMBListadoUsuario = tk.LabelFrame(
             self.ventana, text="Listado de Clientes: "
         )
@@ -22,7 +25,13 @@ class VentanaABMListadoUsuario:
         self.treeviewListadoABMUsuario.heading("dni", text="Dni")
         self.treeviewListadoABMUsuario.heading("email", text="Email")
         self.treeviewListadoABMUsuario.heading("telefono", text="Telefono")
-        self.treeviewListadoABMUsuario.grid(column=0, row=0, padx=10, pady=10)
+        #   Esto ajusta el ancho de las columnas
+        self.treeviewListadoABMUsuario.column("id", width=100, anchor="w")
+        self.treeviewListadoABMUsuario.column("nombre", width=100, anchor="w")
+        self.treeviewListadoABMUsuario.column("apellido", width=100, anchor="w")
+        self.treeviewListadoABMUsuario.column("email", width=100, anchor="w")
+        self.treeviewListadoABMUsuario.column("telefono", width=100, anchor="w")
+        self.treeviewListadoABMUsuario.grid(column=0, row=0, sticky="nsew")
         self.labelFrameventabaAMBListadoUsuarioBotones = tk.LabelFrame(
             self.ventana, text=""
         )
