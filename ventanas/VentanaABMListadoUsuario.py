@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from .auxabmdb import DB as db
 
 
 class VentanaABMListadoUsuario:
@@ -22,3 +23,34 @@ class VentanaABMListadoUsuario:
         self.treeviewListadoABMUsuario.heading("email", text="Email")
         self.treeviewListadoABMUsuario.heading("telefono", text="Telefono")
         self.treeviewListadoABMUsuario.grid(column=0, row=0, padx=10, pady=10)
+        self.labelFrameventabaAMBListadoUsuarioBotones = tk.LabelFrame(
+            self.ventana, text=""
+        )
+        self.labelFrameventabaAMBListadoUsuarioBotones.grid(
+            column=0, row=1, padx=10, pady=10, sticky="w"
+        )
+        self.botonListarlabelFrameventabaAMBListadoUsuarioBotones = tk.Button(
+            self.labelFrameventabaAMBListadoUsuarioBotones,
+            text="Listar",
+            command=self.listarUsuariosExistentes,
+        )
+        self.botonListarlabelFrameventabaAMBListadoUsuarioBotones.grid(
+            column=0, row=0, padx=10, pady=10
+        )
+
+        self.botonCancelarlabelFrameventabaAMBListadoUsuarioBotones = tk.Button(
+            self.labelFrameventabaAMBListadoUsuarioBotones,
+            text="Cancelar",
+            command=self.cancelarListadoUsuario,
+        )
+        self.botonCancelarlabelFrameventabaAMBListadoUsuarioBotones.grid(
+            column=1, row=0, padx=10, pady=10
+        )
+
+    def listarUsuariosExistentes(self):
+        conexion = db()
+        resultado = conexion.listarClientesExistentes()
+        print(resultado)
+
+    def cancelarListadoUsuario(self):
+        self.ventana.destroy()

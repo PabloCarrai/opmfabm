@@ -26,6 +26,7 @@ class MrDB:
         """
         try:
             self.conexion = sqlite3.connect(self.nombreDB)
+            return self.conexion.cursor()
             print(f"Conectado a {self.nombreDB}")
         except sqlite3.Error as e:
             print(f"Error al conectar {e}")

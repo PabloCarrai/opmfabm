@@ -6,7 +6,7 @@ class DB(MrDB):
     """
     Gestiona la conexion a la db datos.db
     Esta es la clase hijo de MrDB
-    Solo va a tener los metodos propios de cada seccion. 
+    Solo va a tener los metodos propios de cada seccion.
     En este caso va a ser para la ventana ABM clientes
     """
 
@@ -27,3 +27,19 @@ class DB(MrDB):
             print("Clientes guardados con exito")
         except sqlite3.IntegrityError:
             print("Error al guardar cliente")
+        finally:
+            self.cerrar()
+
+    def listarClientesExistentes(self):
+        pass
+        consulta = "select id_cliente,nombre,apellido,dni,email from clientes"
+        try:
+            cursor = DB()
+            cursor = cursor.conectar()
+            cursor.execute(consulta)
+            usuariosExistentes = cursor.fetchall()
+            return usuariosExistentes
+        except sqlite3.IntegrityError:
+            print("Error al Listar los cliente")
+        finally:
+            self.cerrar()
