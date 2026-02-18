@@ -12,7 +12,10 @@ if os.path.exists(carpeta_sql):
         if archivo.endswith(".sql"):
             ruta_completa = os.path.join(carpeta_sql, archivo)
             print(f"Leyendo {archivo}")
-            with open(ruta_completa, "r", encoding="utf-8") as f:
-                contenido = f.read()
+            #   Aca ya tengo el archivo en si en ruta_completa
+            #   Hay que leer su contenido
+            # with open(ruta_completa, "r", encoding="utf-8") as f:
+            #     print(ruta_completa)
+            #     contenido = f.read()
 else:
     print("La carpeta sqls no existe")
