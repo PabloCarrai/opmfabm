@@ -14,7 +14,7 @@ class gestorDB:
 
         :param db_name: Es el nombre del archivo .sqlite/.db a usar
         :param self.conexion: Es la conexion al archivo .sqlite/.db
-        :param self.curso: Es el cursor de la conexion
+        :param self.cursor: Es el cursor de la conexion
         """
 
         try:
