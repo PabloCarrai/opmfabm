@@ -3,7 +3,7 @@ from modelos.aux import insertar, eliminar, actualizar
 
 
 def main():
-    actualizar()
+    insertar()
 
 
 if __name__ == "__main__":
