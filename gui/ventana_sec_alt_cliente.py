@@ -9,6 +9,7 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
         self.geometry("300x350")
         self.labelFrame = tk.LabelFrame(self, text="Alta-Cliente")
         self.labelFrame.grid(column=0, row=0, padx=10, pady=10)
+        #   Campo Nombre
         self.etiquetaNombrelabelFrame = tk.Label(self.labelFrame, text="Nombre:   ")
         self.etiquetaNombrelabelFrame.grid(
             column=0, row=0, padx=10, pady=10, sticky="w"
@@ -18,3 +19,50 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
             self.labelFrame, textvariable=self.stringVarNombre
         )
         self.entradaNombre.grid(column=1, row=0, padx=10, pady=10, sticky="e")
+
+        #   Campo Apellido
+        self.etiquetaApellidolabelFrame = tk.Label(self.labelFrame, text="Apellido:   ")
+        self.etiquetaApellidolabelFrame.grid(
+            column=0, row=1, padx=10, pady=10, sticky="w"
+        )
+        self.stringVarApellidolabelFrame = tk.StringVar()
+        self.entradaApellidolabelFrame = tk.Entry(
+            self.labelFrame, textvariable=self.stringVarApellidolabelFrame
+        )
+        self.entradaApellidolabelFrame.grid(
+            column=1, row=1, padx=10, pady=10, sticky="e"
+        )
+
+        #   Campo Telefono
+        self.etiquetaTelefonolabelFrame = tk.Label(self.labelFrame, text="Telefono:   ")
+        self.etiquetaTelefonolabelFrame.grid(
+            column=0, row=2, padx=10, pady=10, sticky="w"
+        )
+        self.stringVarTelefonolabelFrame = tk.StringVar()
+        self.entradaTelefonolabelFrame = tk.Entry(
+            self.labelFrame, textvariable=self.stringVarTelefonolabelFrame
+        )
+        self.entradaTelefonolabelFrame.grid(
+            column=1, row=2, padx=10, pady=10, sticky="e"
+        )
+
+        #   Campo Correo
+        self.etiquetaCorreolabelFrame = tk.Label(self.labelFrame, text="Correo:   ")
+        self.etiquetaCorreolabelFrame.grid(
+            column=0, row=3, padx=10, pady=10, sticky="w"
+        )
+        self.stringVarCorreolabelFrame = tk.StringVar()
+        self.entradaCorreolabelFrame = tk.Entry(
+            self.labelFrame, textvariable=self.stringVarCorreolabelFrame
+        )
+        self.entradaCorreolabelFrame.grid(column=1, row=3, padx=10, pady=10, sticky="e")
+
+        self.botonIngresarlabelFrame = tk.Button(self.labelFrame, text="Ingresar")
+        self.botonIngresarlabelFrame.grid(column=0, row=4, padx=10, pady=10, sticky="e")
+        self.botonCancelarlabelFrame = tk.Button(
+            self.labelFrame, text="Cancelar", command=self.cancelar_alta_usuario
+        )
+        self.botonCancelarlabelFrame.grid(column=1, row=4, padx=10, pady=10, sticky="e")
+
+    def cancelar_alta_usuario(self):
+        self.destroy()
