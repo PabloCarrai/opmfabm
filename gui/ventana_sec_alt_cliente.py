@@ -13,3 +13,8 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
         self.etiquetaNombrelabelFrame.grid(
             column=0, row=0, padx=10, pady=10, sticky="w"
         )
+        self.stringVarNombre = tk.StringVar()
+        self.entradaNombre = tk.Entry(
+            self.labelFrame, textvariable=self.stringVarNombre
+        )
+        self.entradaNombre.grid(column=1, row=0, padx=10, pady=10, sticky="e")
