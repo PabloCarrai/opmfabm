@@ -41,7 +41,6 @@ class Gestor_Hijo(gdb):
         Se requiere datos que es el conjunto de datos y
         sentencia que seria la consulta sql de update para dichos datos
         """
-
         try:
             self.cursor.execute(sentencia, datos)
             self.conexion.commit()
