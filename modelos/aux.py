@@ -5,23 +5,41 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from archivo_db.gestor_hijo_db import Gestor_Hijo as gh
 
+#   Se repetia mucho en cada funcion el nombre del archivo, asi se ve mejor
+archivo_Db = "gestor_archivo_sqlite/archivo_db.db"
 
-def insertar(datos):
-    db = gh("gestor_archivo_sqlite/archivo_db.db")
-    db.insertar_Registro(datos)
+
+def insertar(datos, sentencia):
+    """
+    Se necesita datos y sentencia.
+    Datos son una tupla con los datos necesarios en base a sentencia
+    sentencia es una sql para una insercion.
+    """
+    db = gh(archivo_Db)
+    db.insertar_Registro(datos, sentencia)
     db.cerrar()
     print(f" Registro {datos} insertado")
 
 
-def eliminar(datos):
-    db = gh("gestor_archivo_sqlite/archivo_db.db")
-    db.eliminar_Registro(datos)
+def eliminar(datos, sentencia):
+    """
+    Se necesita datos y sentencia.
+    Datos son una tupla con los datos necesarios en base a sentencia
+    sentencia es una sql para una eliminar datos.
+    """
+    db = gh(archivo_Db)
+    db.eliminar_Registro(datos, sentencia)
     db.cerrar()
     print(f" Registro {datos} Eliminado")
 
 
-def actualizar(datos):
-    db = gh("gestor_archivo_sqlite/archivo_db.db")
-    db.actualizar_Registro(datos)
+def actualizar(datos, sentencia):
+    """
+    Se necesita datos y sentencia.
+    Datos son una tupla con los datos necesarios en base a sentencia
+    sentencia es una sql para una actualizacion.
+    """
+    db = gh(archivo_Db)
+    db.actualizar_Registro(datos, sentencia)
     db.cerrar()
     print(f" Registro {datos} Actualizado")
