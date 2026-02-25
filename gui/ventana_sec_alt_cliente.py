@@ -87,7 +87,6 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
                 ms.showinfo("Vamos Carajo", "Viva Peron")
             else:
                 ms.showerror("Error", "Todo mal")
-
         except Exception as e:
             print("Error al ingresar cliente")
 
