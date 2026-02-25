@@ -1,11 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox as ms
 import sys, os
 
 #   Esto me deja importar modelos
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from modelos.aux_abm_cliente import verificar_campo_vacio
+from modelos.aux_abm_cliente import validar_entradas_vacias
 
 
 class Ventana_sec_alt_cliente(tk.Toplevel):
@@ -75,13 +76,18 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
 
     def validar_datos_alta_cliente(self):
         try:
-            campos = [
+            datos = [
                 self.stringVarNombrelabelFrame.get(),
                 self.stringVarApellidolabelFrame.get(),
                 self.stringVarCorreolabelFrame.get(),
                 self.stringVarTelefonolabelFrame.get(),
             ]
-            print(campos)
+            if validar_entradas_vacias(datos):
+                #   Aca tendriamos que hacer la parte de la db para que ingrese los datos
+                ms.showinfo("Vamos Carajo", "Viva Peron")
+            else:
+                ms.showerror("Error", "Todo mal")
+
         except Exception as e:
             print("Error al ingresar cliente")
 
