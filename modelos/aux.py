@@ -54,4 +54,4 @@ def verifica_correo_existe(correo):
     
 
 
-print(verifica_correo_existe("gdaraoez@gmail.com"))
+print(verifica_correo_existe("gdaraoz@gmail.com"))
