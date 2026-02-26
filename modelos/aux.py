@@ -43,3 +43,15 @@ def actualizar(datos, sentencia):
     db.actualizar_Registro(datos, sentencia)
     db.cerrar()
     print(f" Registro {datos} Actualizado")
+
+def verifica_correo_existe(correo):
+    sentencia = "select email from clientes where email=?"
+    datos = (correo,)
+    db = gh(archivo_Db)
+    resultado = db.verificar_correo_existente(datos, sentencia)
+    db.cerrar()
+    return resultado
+    
+
+
+print(verifica_correo_existe("gdaraoez@gmail.com"))

@@ -46,3 +46,13 @@ class Gestor_Hijo(gdb):
             self.conexion.commit()
         except sqlite3.Error as e:
             print(f"Error al actualizar registro: {e}")
+
+    def verificar_correo_existente(self, datos, sentencia):
+        try:
+            self.cursor.execute(sentencia, datos)
+            if self.cursor.fetchone():
+                return True
+            else:
+                return False
+        except sqlite3.Error as e:
+            print(f"Error al consultar correo existente: {e}")

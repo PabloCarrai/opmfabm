@@ -6,7 +6,8 @@ import sys, os
 #   Esto me deja importar modelos
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from modelos.aux_abm_cliente import validar_entradas_vacias
+from modelos.aux_abm_cliente import validar_entradas_vacias, validar_formato_correo
+from modelos.aux import verifica_correo_existe
 
 
 class Ventana_sec_alt_cliente(tk.Toplevel):
@@ -84,7 +85,20 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
             ]
             if validar_entradas_vacias(datos):
                 #   Aca tendriamos que hacer la parte de la db para que ingrese los datos
-                ms.showinfo("Vamos Carajo", "Viva Peron")
+                try:
+                    if validar_formato_correo(self.stringVarCorreolabelFrame.get()):
+                        if verifica_correo_existe:
+                            ms.showinfo("Problemas", "El correo ya existe")
+                        else:
+                            ms.showinfo(
+                                "Vamos Carajo", "El correo es valido y es unico"
+                            )
+                            #   Ahora falta revisar que no exista en la db
+                    else:
+                        ms.showinfo("Ups", "El correo no parece valido")
+                except Exception as e:
+                    print("Error en el correo")
+                # ms.showinfo("Vamos Carajo", "Viva Peron")
             else:
                 ms.showerror("Error", "Todo mal")
         except Exception as e:
