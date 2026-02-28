@@ -53,5 +53,5 @@ def verifica_correo_existe(correo):
     return resultado
     
 
-
-print(verifica_correo_existe("pablocarrai@gmail.com"))
+#   Era esto jajajaja que boludo jajajaja
+#print(verifica_correo_existe("pablocarrai@gmail.com"))

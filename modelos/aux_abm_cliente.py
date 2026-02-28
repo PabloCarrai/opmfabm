@@ -1,5 +1,5 @@
 import re
-#from aux import verifica_correo_existe
+from aux import verifica_correo_existe
 
 
 def validar_entradas_vacias(datos):
@@ -26,5 +26,5 @@ def validar_formato_correo(correo):
 # print(validar_entradas_vacias(datos))
 # print(validar_formato_correo("pablocarrai@gmail.com"))
 
-# print(verifica_correo_existe("@gmail.com"))
+print(verifica_correo_existe("@gmail.com"))
 # verifica_correo_existe("")

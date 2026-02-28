@@ -83,26 +83,8 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
                 self.stringVarCorreolabelFrame.get(),
                 self.stringVarTelefonolabelFrame.get(),
             ]
-            if validar_entradas_vacias(datos):
-                #   Aca tendriamos que hacer la parte de la db para que ingrese los datos
-                try:
-                    if validar_formato_correo(self.stringVarCorreolabelFrame.get()):
-                        if verifica_correo_existe:
-                            ms.showinfo("Problemas", "El correo ya existe")
-                        else:
-                            ms.showinfo(
-                                "Vamos Carajo", "El correo es valido y es unico"
-                            )
-                            #   Ahora falta revisar que no exista en la db
-                    else:
-                        ms.showinfo("Ups", "El correo no parece valido")
-                except Exception as e:
-                    print("Error en el correo")
-                # ms.showinfo("Vamos Carajo", "Viva Peron")
-            else:
-                ms.showerror("Error", "Todo mal")
         except Exception as e:
-            print("Error al ingresar cliente")
+            ms.showerror("Problemas", "Problemas con algun campo")
 
     def cancelar_alta_usuario(self):
         self.destroy()
