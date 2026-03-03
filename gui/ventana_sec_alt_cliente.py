@@ -8,7 +8,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from modelos.aux_abm_cliente import validar_entradas_vacias, validar_formato_correo
 from modelos.aux import verifica_correo_existe
-from modelos.aux_abm_cliente import chequeo_todo_abm_cliente
+from modelos.aux import insertar
+from modelos.aux_abm_cliente import chequeo_todo_abm_cliente, limpiar_entradas
 
 
 class Ventana_sec_alt_cliente(tk.Toplevel):
@@ -84,13 +85,25 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
                 self.stringVarTelefonolabelFrame.get(),
                 self.stringVarCorreolabelFrame.get(),
             ]
+            entradas = [
+                self.entradaNombrelabelFrame,
+                self.entradaApellidolabelFrame,
+                self.entradaTelefonolabelFrame,
+                self.entradaCorreolabelFrame,
+            ]
             if chequeo_todo_abm_cliente(datos):
-                ms.showinfo("Vamos", "Ahi estaria para insertar en la db")
+                ms.showinfo("Exitos", "Registro insertado con exito")
                 #   Aca vendiramos a meter una funcion que ingrese los datos a la db
+                insertar(
+                    datos,
+                    "insert into clientes(nombre,apellido,telefono,email) values(?,?,?,?)",
+                )
+                limpiar_entradas(entradas)
+                entradas[0].focus_set()
             else:
                 ms.showinfo("Error", "Hay algun problema con las entradas o el correo")
         except Exception as e:
-            ms.showerror("Problemas", "Problemas con algun campo")
+            ms.showerror("Problemas", "Hay algun problema con las entradas")
 
     def cancelar_alta_usuario(self):
         self.destroy()

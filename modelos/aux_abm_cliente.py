@@ -1,6 +1,14 @@
 import re
+import tkinter as tk
+from tkinter import ttk
 
 from modelos.aux import verifica_correo_existe
+
+
+def limpiar_entradas(datos):
+    for dato in datos:
+        dato.delete(0, tk.END)
+
 
 def validar_entradas_vacias(datos):
     return all(dato.strip() for dato in datos)
