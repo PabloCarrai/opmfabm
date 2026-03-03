@@ -8,6 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from modelos.aux_abm_cliente import validar_entradas_vacias, validar_formato_correo
 from modelos.aux import verifica_correo_existe
+from modelos.aux_abm_cliente import chequeo_todo_abm_cliente
 
 
 class Ventana_sec_alt_cliente(tk.Toplevel):
@@ -83,6 +84,11 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
                 self.stringVarCorreolabelFrame.get(),
                 self.stringVarTelefonolabelFrame.get(),
             ]
+            print(chequeo_todo_abm_cliente(datos))
+            if chequeo_todo_abm_cliente(datos):
+                ms.showinfo("Vamos", "Ahi estaria para insertar en la db")
+            else:
+                ms.showinfo("Error", "Hay algun problema con las entradas o el correo")
         except Exception as e:
             ms.showerror("Problemas", "Problemas con algun campo")
 
