@@ -81,12 +81,12 @@ class Ventana_sec_alt_cliente(tk.Toplevel):
             datos = [
                 self.stringVarNombrelabelFrame.get(),
                 self.stringVarApellidolabelFrame.get(),
-                self.stringVarCorreolabelFrame.get(),
                 self.stringVarTelefonolabelFrame.get(),
+                self.stringVarCorreolabelFrame.get(),
             ]
-            print(chequeo_todo_abm_cliente(datos))
             if chequeo_todo_abm_cliente(datos):
                 ms.showinfo("Vamos", "Ahi estaria para insertar en la db")
+                #   Aca vendiramos a meter una funcion que ingrese los datos a la db
             else:
                 ms.showinfo("Error", "Hay algun problema con las entradas o el correo")
         except Exception as e:
