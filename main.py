@@ -11,6 +11,7 @@ from gui.ventana_principal import Ventana_Principal
 #     "delete from clientes where id=?",
 #     "update clientes set nombre=?,apellido=? ,telefono=? ,email=?  where id=?",
 # ]
+#   update sqlite_sequence set seq=0 where name="clientes";
 
 
 def mostrar_gui():
