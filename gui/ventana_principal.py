@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from .ventana_sec_alt_cliente import Ventana_sec_alt_cliente
-
+from .ventana_sec_list_cliente import Ventana_sec_list_cliente
 
 class Ventana_Principal(tk.Tk):
     def __init__(self):
@@ -34,7 +34,9 @@ class Ventana_Principal(tk.Tk):
 
         #   Boton Listado-Cliente
         self.botonVentanaABMUsuarioListadoUsuario = tk.Button(
-            self.labelFramePrincipalABMCliente, text="Listado-Cliente"
+            self.labelFramePrincipalABMCliente,
+            text="Listado-Cliente",
+            command=self.abrir_ventana_sec_list_cliente,
         )
         self.botonVentanaABMUsuarioListadoUsuario.grid(
             column=0, row=1, padx=10, pady=10
@@ -50,6 +52,9 @@ class Ventana_Principal(tk.Tk):
 
     def abrir_ventana_sec_alt_cliente(self):
         ventana_secundaria = Ventana_sec_alt_cliente()
+
+    def abrir_ventana_sec_list_cliente(self):
+        ventana_secundaria = Ventana_sec_list_cliente()
 
     def salirAplicacionPrincipal(self):
         self.destroy()
