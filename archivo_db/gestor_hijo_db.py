@@ -47,6 +47,14 @@ class Gestor_Hijo(gdb):
         except sqlite3.Error as e:
             print(f"Error al actualizar registro: {e}")
 
+    def listar_info_cliente(self, sentencia):
+        try:
+            self.cursor.execute(sentencia)
+            clientes = self.cursor.fetchall()
+            return clientes
+        except sqlite3.Error as e:
+            print(f"Error al listar registro: {e}")
+
     def verificar_correo_existente(self, datos, sentencia):
         try:
             self.cursor.execute(sentencia, datos)

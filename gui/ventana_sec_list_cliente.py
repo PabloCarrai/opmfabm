@@ -1,5 +1,12 @@
+import sys, os
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox as ms
+
+#   Esto me deja importar modelos
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from modelos.aux import listar
 
 
 class Ventana_sec_list_cliente(tk.Toplevel):
@@ -15,14 +22,14 @@ class Ventana_sec_list_cliente(tk.Toplevel):
         )
         for columna in columnas:
             self.treeviewListadoClientelabelFrame.heading(columna, text=columna)
-            self.treeviewListadoClientelabelFrame.column(columna, width=100)
+            self.treeviewListadoClientelabelFrame.column(columna, width=150)
         self.treeviewListadoClientelabelFrame.grid(column=0, row=0, padx=10, pady=10)
 
         self.labelFrameBotones = tk.LabelFrame(self, text="")
         self.labelFrameBotones.grid(column=0, row=1, padx=10, pady=10, sticky="e")
         #   Boton listar
         self.botonListarClienteListadoClientelabelFrame = tk.Button(
-            self.labelFrameBotones, text="Listar"
+            self.labelFrameBotones, text="Listar", command=self.listarListadoClientes
         )
         self.botonListarClienteListadoClientelabelFrame.grid(
             column=0, row=1, padx=10, pady=10
@@ -35,3 +42,19 @@ class Ventana_sec_list_cliente(tk.Toplevel):
 
     def salirListadoCliente(self):
         self.destroy()
+
+    def listarListadoClientes(self):
+        try:
+            for item in self.treeviewListadoClientelabelFrame.get_children():
+                self.treeviewListadoClientelabelFrame.delete(item)
+            sentencia = "select nombre,apellido,telefono,email from clientes"
+            resultado = listar(sentencia)
+            if len(resultado) == 0:
+                ms.showinfo("Error", "No hay datos en la DB")
+            else:
+                for contacto in resultado:
+                    self.treeviewListadoClientelabelFrame.insert(
+                        "", tk.END, values=contacto
+                    )
+        except Exception as e:
+            ms.showerror("Error", f"Problemas con el listado de Clientes: {e}")

@@ -10,6 +10,7 @@ from gui.ventana_principal import Ventana_Principal
 #     "insert into clientes(nombre,apellido,telefono,email) values(?,?,?,?)",
 #     "delete from clientes where id=?",
 #     "update clientes set nombre=?,apellido=? ,telefono=? ,email=?  where id=?",
+#     "select nombre,apellido,telefono,email from clientes"
 # ]
 #   update sqlite_sequence set seq=0 where name="clientes";
 

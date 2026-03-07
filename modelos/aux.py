@@ -44,6 +44,15 @@ def actualizar(datos, sentencia):
     db.cerrar()
     print(f" Registro {datos} Actualizado")
 
+
+def listar(sentencia):
+    db = gh(archivo_Db)
+    clientes = db.listar_info_cliente(sentencia)
+    db.cerrar()
+    return clientes
+    # print(f" Listado {datos}")
+
+
 def verifica_correo_existe(correo):
     sentencia = "select email from clientes where email=?"
     datos = (correo,)
@@ -51,7 +60,3 @@ def verifica_correo_existe(correo):
     resultado = db.verificar_correo_existente(datos, sentencia)
     db.cerrar()
     return resultado
-    
-
-#   Era esto jajajaja que boludo jajajaja
-#print(verifica_correo_existe("pablocarrais@com"))
