@@ -3,6 +3,8 @@ from tkinter import ttk
 
 from .ventana_sec_alt_cliente import Ventana_sec_alt_cliente
 from .ventana_sec_list_cliente import Ventana_sec_list_cliente
+from .ventana_sec_edic_cliente import Ventana_sec_edic_cliente
+
 
 class Ventana_Principal(tk.Tk):
     def __init__(self):
@@ -20,7 +22,9 @@ class Ventana_Principal(tk.Tk):
         self.botonVentanaABMUsuarioAltaUsuario.grid(column=0, row=0, padx=10, pady=10)
         #   Boton Edicion-Cliente
         self.botonVentanaABMUsuarioEdicionUsuario = tk.Button(
-            self.labelFramePrincipalABMCliente, text="Edicion-Cliente"
+            self.labelFramePrincipalABMCliente,
+            text="Edicion-Cliente",
+            command=self.abrir_ventana_sec_edic_cliente,
         )
         self.botonVentanaABMUsuarioEdicionUsuario.grid(
             column=1, row=0, padx=10, pady=10
@@ -55,6 +59,9 @@ class Ventana_Principal(tk.Tk):
 
     def abrir_ventana_sec_list_cliente(self):
         ventana_secundaria = Ventana_sec_list_cliente()
+
+    def abrir_ventana_sec_edic_cliente(self):
+        ventana_secundaria = Ventana_sec_edic_cliente()
 
     def salirAplicacionPrincipal(self):
         self.destroy()

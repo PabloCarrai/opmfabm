@@ -16,7 +16,7 @@ class Ventana_sec_list_cliente(tk.Toplevel):
         self.labelFrame = tk.LabelFrame(self, text="Listado-Cliente")
         self.labelFrame.grid(column=0, row=0, padx=10, pady=10)
         #   El mentado treeview va a partir de aca
-        columnas = ("Nombre", "Apellido", "Telefono", "Email")
+        columnas = ("Id", "Nombre", "Apellido", "Telefono", "Email")
         self.treeviewListadoClientelabelFrame = ttk.Treeview(
             self.labelFrame, columns=columnas, show="headings"
         )
@@ -47,7 +47,7 @@ class Ventana_sec_list_cliente(tk.Toplevel):
         try:
             for item in self.treeviewListadoClientelabelFrame.get_children():
                 self.treeviewListadoClientelabelFrame.delete(item)
-            sentencia = "select nombre,apellido,telefono,email from clientes"
+            sentencia = "select id,nombre,apellido,telefono,email from clientes"
             resultado = listar(sentencia)
             if len(resultado) == 0:
                 ms.showinfo("Error", "No hay datos en la DB")
