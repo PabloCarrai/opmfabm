@@ -41,5 +41,67 @@ class Ventana_sec_edic_cliente(tk.Toplevel):
             column=1, row=0, padx=10, pady=10
         )
         #   Etiqueta Apellido
+        self.etiquetaApellidolabelFrameDetalleCliente = tk.Label(
+            self.labelFrameDetalleCliente, text="Apellido:"
+        )
+        self.etiquetaApellidolabelFrameDetalleCliente.grid(
+            column=0, row=1, padx=10, pady=10
+        )
+        #   Stringvar Apellido
+        self.stringvarApellidolabelFrameDetalleCliente = tk.StringVar()
+        #   Entrada Apellido
+        self.entradaApellidolabelFrameDetalleCliente = tk.Entry(
+            self.labelFrameDetalleCliente,
+            textvariable=self.stringvarApellidolabelFrameDetalleCliente,
+        )
+        self.entradaApellidolabelFrameDetalleCliente.grid(
+            column=1, row=1, padx=10, pady=10
+        )
         #   Etiqueta Telefono
+        self.etiquetaTelefonolabelFrameDetalleCliente = tk.Label(
+            self.labelFrameDetalleCliente, text="Telefono:"
+        )
+        self.etiquetaTelefonolabelFrameDetalleCliente.grid(
+            column=0, row=2, padx=10, pady=10
+        )
+        #   Stringvar telefono
+        self.stringvarTelefonolabelFrameDetalleCliente = tk.StringVar()
+        #   Entrada Telefono
+        self.entradaTelefonolabelFrameDetalleCliente = tk.Entry(
+            self.labelFrameDetalleCliente,
+            textvariable=self.stringvarTelefonolabelFrameDetalleCliente,
+        )
+        self.entradaTelefonolabelFrameDetalleCliente.grid(
+            column=1, row=2, padx=10, pady=10
+        )
         #   Etiqueta Email
+        self.etiquetaEmaillabelFrameDetalleCliente = tk.Label(
+            self.labelFrameDetalleCliente, text="Correo:"
+        )
+        self.etiquetaEmaillabelFrameDetalleCliente.grid(
+            column=0, row=3, padx=10, pady=10
+        )
+        #   Stringvar Email
+        self.stringvarEmaillabelFrameDetalleCliente = tk.StringVar()
+        #   Entrada Email
+        self.entradaEmaillabelFrameDetalleCliente = tk.Entry(
+            self.labelFrameDetalleCliente,
+            textvariable=self.stringvarEmaillabelFrameDetalleCliente,
+        )
+        self.entradaEmaillabelFrameDetalleCliente.grid(
+            column=1, row=3, padx=10, pady=10
+        )
+        self.botonEditarlabelFrameDetalleCliente = tk.Button(
+            self.labelFrameDetalleCliente, text="Editar"
+        )
+        self.botonEditarlabelFrameDetalleCliente.grid(column=0, row=4, padx=10, pady=10)
+
+        self.botonSalirlabelFrameDetalleCliente = tk.Button(
+            self.labelFrameDetalleCliente,
+            text="Salir",
+            command=self.salirEdicionCliente,
+        )
+        self.botonSalirlabelFrameDetalleCliente.grid(column=1, row=4, padx=10, pady=10)
+
+    def salirEdicionCliente(self):
+        self.destroy()
