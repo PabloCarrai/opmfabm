@@ -1,5 +1,12 @@
+import os, sys
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox as ms
+
+#   Esto me deja importar modelos
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from modelos.aux_abm_cliente import validar_entrada_vacia_id
 
 
 class Ventana_sec_edic_cliente(tk.Toplevel):
@@ -18,6 +25,12 @@ class Ventana_sec_edic_cliente(tk.Toplevel):
         self.entradaIdlabelFrame = tk.Entry(
             self.labelFrame, textvariable=self.stringvarIdlabelFrame
         )
+        # Boton Buscar
+        self.botonBuscarlabelFrame = tk.Button(
+            self.labelFrame, text="Buscar", command=self.buscarclienteid
+        )
+        self.botonBuscarlabelFrame.grid(column=1, row=1, padx=10, pady=10)
+
         self.entradaIdlabelFrame.grid(column=1, row=0, padx=10, pady=10)
         #   Label para el detalle del cliente
         self.labelFrameDetalleCliente = tk.LabelFrame(self, text="Detalle-Cliente")
@@ -102,6 +115,15 @@ class Ventana_sec_edic_cliente(tk.Toplevel):
             command=self.salirEdicionCliente,
         )
         self.botonSalirlabelFrameDetalleCliente.grid(column=1, row=4, padx=10, pady=10)
+
+    def buscarclienteid(self):
+        print(validar_entrada_vacia_id(self.stringvarIdlabelFrame))
+        if validar_entrada_vacia_id(self.stringvarIdlabelFrame):
+            ms.showinfo("Capitan America del quisqui ", "Vamos loco")
+        else:
+            ms.showerror(
+                "Error ", "El id esta vacio papa, que queres que busque, la nada??"
+            )
 
     def salirEdicionCliente(self):
         self.destroy()

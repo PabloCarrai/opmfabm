@@ -14,6 +14,17 @@ def validar_entradas_vacias(datos):
     return all(dato.strip() for dato in datos)
 
 
+def validar_entrada_vacia_id(dato):
+    """
+    Devuelve False si el stringvar no tiene elementos
+    sino devuelve True
+    """
+    if not dato.get():
+        return False
+    else:
+        return True
+
+
 def validar_formato_correo(correo):
     pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
     if re.match(pattern, correo):
